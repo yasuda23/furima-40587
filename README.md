@@ -25,11 +25,11 @@
 | ---------------- | ---------- | ----------- |
 | name             | string     | null: false |
 | explanation      | text       | null: false |
-| category         | string     | null: false |
-| quality          | integer    | null: false |
-| who_pay          | integer    | null: false |
-| delivery_area    | integer    | null: false |
-| delivery_days    | integer    | null: false |
+| category_id      | string     | null: false |
+| quality_id       | integer    | null: false |
+| who_pay_id       | integer    | null: false |
+| delivery_area_id | integer    | null: false |
+| delivery_days_id | integer    | null: false |
 | price            | integer    | null: false |
 | user             | references | null: false, foreign_key: true |
 
@@ -44,8 +44,8 @@
 
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
-| order         | references | null: false, foreign_key: true |
-| prefecture	  | integer    | null: false |
+| postal_code 	| integer    | null: false |
+| prefecture_id	| integer    | null: false |
 | city	        | string     | null: false |
 | house_number  | string     | null: false |
 | building_name | string     |             |
@@ -66,3 +66,4 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_many :orders
