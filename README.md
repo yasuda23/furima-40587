@@ -44,7 +44,7 @@
 
 | Column           | Type       | Options     |
 | ---------------- | ---------- | ----------- |
-| postal_code_id	 | string     | null: false |
+| postal_code   	 | string     | null: false |
 | delivery_area_id | integer    | null: false |
 | city	           | string     | null: false |
 | house_number     | string     | null: false |
@@ -68,4 +68,4 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :addresse
