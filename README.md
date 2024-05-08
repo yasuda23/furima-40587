@@ -5,16 +5,13 @@
 | Column                | Type   | Options     |
 | --------------------- | ------ | ----------- |
 | nickname              | string | null: false |
-| email                 | string | null: false |
-| password              | string | null: false |
-| password_confirmation | string | null: false |
+| email                 | string | null: false, unique: true |
+| encrypted_password    | string | null: false |
 | firstname_kanji       | string | null: false |
 | lastname_kanji        | string | null: false |
 | firstname_katakana    | string | null: false |
 | lastname_katakana     | string | null: false |
-| birth_day_year        | string | null: false |
-| birth_day_month       | string | null: false |
-| birth_day_day         | string | null: false |
+| birth_day             | date   | null: false |
 
  ### Association
 
@@ -26,9 +23,8 @@
 
 | Column           | Type       | Options     |
 | ---------------- | ---------- | ----------- |
-| image            | string     | null: false |
 | name             | string     | null: false |
-| text             | text       | null: false |
+| explanation      | text       | null: false |
 | category         | string     | null: false |
 | quality          | integer    | null: false |
 | who_pay          | integer    | null: false |
@@ -48,7 +44,7 @@
 
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
-| postal_code   | string     | null: false |
+| order         | references | null: false, foreign_key: true |
 | prefecture	  | integer    | null: false |
 | city	        | string     | null: false |
 | house_number  | string     | null: false |
