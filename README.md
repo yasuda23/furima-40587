@@ -25,11 +25,11 @@
 | ---------------- | ---------- | ----------- |
 | name             | string     | null: false |
 | explanation      | text       | null: false |
-| category_id      | string     | null: false |
+| category_id      | integer    | null: false |
 | quality_id       | integer    | null: false |
 | who_pay_id       | integer    | null: false |
 | delivery_area_id | integer    | null: false |
-| delivery_days_id | integer    | null: false |
+| delivery_day_id  | integer    | null: false |
 | price            | integer    | null: false |
 | user             | references | null: false, foreign_key: true |
 
@@ -42,14 +42,15 @@
 
 ## addresses テーブル
 
-| Column        | Type       | Options     |
-| ------------- | ---------- | ----------- |
-| postal_code 	| integer    | null: false |
-| prefecture_id	| integer    | null: false |
-| city	        | string     | null: false |
-| house_number  | string     | null: false |
-| building_name | string     |             |
-| phone_number  | string     | null: false |
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| prefecture_id	  | integer    | null: false |
+| city	          | string     | null: false |
+| house_number    | string     | null: false |
+| building_name   | string     |             |
+| phone_number    | string     | null: false |
+| order           | references | null: false, foreign_key: true |
+
 
 ### Association
 
@@ -66,4 +67,4 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_many :orders
+- has_one :order
