@@ -12,7 +12,13 @@ RSpec.describe OrderAddress, type: :model do
       it '全ての項目が正しい値なら購入できること' do
         expect(@order_address).to be_valid
       end
+      
+      it '建物名が空でも登録できること' do
+        @order_address.building_name = ''
+        expect(@order_address).to be_valid
+      end
     end
+
 
     context '商品が購入できない時' do
 
@@ -74,6 +80,18 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.phone_number = '090123456789'
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Phone number is invalid")
+    end
+
+    it 'user_idが空では登録できないこと' do
+      @order_address.user_id = ''
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("User can't be blank")
+    end
+    
+    it 'item_idが空では登録できないこと' do
+      @order_address.item_id = ''
+      @order_address.valid?
+      expect(@order_address.errors.full_messages).to include("Item can't be blank")
     end
 
     end
