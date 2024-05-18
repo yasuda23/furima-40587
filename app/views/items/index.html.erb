@@ -134,11 +134,11 @@
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-        <%# <% if @orders.empty? %> 
+        <% if item.order.present? %>
           <div class='sold-out'>
-            <%# <span>Sold Out!!</span> %>
+            <span>Sold Out!!</span> 
           </div>
-        <%# <% end %> 
+        <% end %> 
 
         </div>
         <div class='item-info'>
